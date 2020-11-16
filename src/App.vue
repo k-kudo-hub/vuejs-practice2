@@ -1,10 +1,20 @@
 <template>
   <div class="main">
+    <button @click="myAnimation = 'slide'">Slide</button>
+    <button @click="myAnimation = 'fade'">Fade</button>
+    <p>{{ myAnimation }}</p>
     <button @click="show =! show">切り替え</button>
-    <transition name="fade">
+    <transition 
+      enter-active-class="animated bounce"
+      leave-active-class="animated shake"
+      appear
+    >
       <p v-if="show">hello</p>
     </transition>
-    <transition name="slide" type="animation" appear> 
+    <transition 
+      :name="myAnimation" 
+      appear
+    > 
       <p v-if="show">bye</p>
     </transition>
   </div>
@@ -14,7 +24,8 @@
 export default {
   data(){
     return {
-      show: true
+      show: true,
+      myAnimation: 'slide'
     };
   }
 }

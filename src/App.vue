@@ -4,7 +4,7 @@
     <button @click="myAnimation = 'fade'">Fade</button>
     <p>{{ myAnimation }}</p>
     <button @click="show =! show">切り替え</button>
-    <transition name="fade" mode="out-in">
+    <transition name="fade">
       <p
        v-if="show"
        key="bye"
